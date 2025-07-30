@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mindful Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🧠 Mindfulness Check</h1>
+  <form action="answers.txt" method="POST">
+    <label>1. How calm do you feel right now?</label><br>
+    <input type="radio" name="q1" value="1"> Not at all<br>
+    <input type="radio" name="q1" value="2"> A little<br>
+    <input type="radio" name="q1" value="3"> Calm<br><br>
+
+    <label>2. How grateful are you today?</label><br>
+    <input type="radio" name="q2" value="1"> Not really<br>
+    <input type="radio" name="q2" value="2"> Kind of<br>
+    <input type="radio" name="q2" value="3"> Very much<br><br>
+
+    <label>3. Did you take a break from screens?</label><br>
+    <input type="radio" name="q3" value="1"> No<br>
+    <input type="radio" name="q3" value="2"> A bit<br>
+    <input type="radio" name="q3" value="3"> Yes<br><br>
+
+    <input type="submit" value="Submit" onclick="saveAnswers()">
+  </form>
+
+  <script>
+    function saveAnswers() {
+      const answers = [];
+      for (let i = 1; i <= 3; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) answers.push(selected.value);
+      }
+
+      const blob = new Blob([answers.join("\n")], { type: "text/plain" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "answers.txt";
+      a.click();
+    }
+  </script>
+</body>
+</html>
