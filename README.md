@@ -19,3 +19,13 @@ This is a simple, creative app that checks your mindfulness level based on 3 qui
 1. Fill out the form and download `answers.txt`
 2. Place `answers.txt` in this folder
 3. Compile C code:
+4. Check `result.txt` for score and advice
+
+## 💻 Tools Used
+- HTML, CSS
+- C Programming Language
+- VS Code
+- GitHub
+
+## 🚀 Author
+Ruhi — B.Tech CSE student exploring code & creativity 💻✨
